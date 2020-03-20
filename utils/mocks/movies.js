@@ -1,6 +1,6 @@
 const moviesMock = [
   {
-    _id: '70f94d08-9a2e-427f-92d5-bd76e2e3d95f',
+    id: '70f94d08-9a2e-427f-92d5-bd76e2e3d95f',
     title: 'Logorama',
     year: 2040,
     cover: 'http://dummyimage.com/110x206.bmp/5fa2dd/ffffff',
@@ -12,7 +12,7 @@ const moviesMock = [
     tag: ['Comedy', 'Drama'],
   },
   {
-    _id: 'aad853aa-4867-4aba-ba74-c66293921bab',
+    id: 'aad853aa-4867-4aba-ba74-c66293921bab',
     title: 'Messiah of Evil',
     year: 2021,
     cover: 'http://dummyimage.com/186x155.bmp/cc0000/ffffff',
@@ -24,7 +24,7 @@ const moviesMock = [
     tag: ['Crime|Film-Noir|Mystery|Thriller'],
   },
   {
-    _id: 'b4519923-6707-48cf-a9ef-0269c7e142ad',
+    id: 'b4519923-6707-48cf-a9ef-0269c7e142ad',
     title: 'River, The (He liu)',
     year: 2009,
     cover: 'http://dummyimage.com/160x186.bmp/5fa2dd/ffffff',
@@ -42,7 +42,7 @@ const moviesMock = [
     ],
   },
   {
-    _id: 'ef4f3db7-17d9-4286-85b2-473d4aad16e1',
+    id: 'ef4f3db7-17d9-4286-85b2-473d4aad16e1',
     title: "Bells of St. Mary's, The",
     year: 2033,
     cover: 'http://dummyimage.com/117x236.png/cc0000/ffffff',
@@ -54,7 +54,7 @@ const moviesMock = [
     tag: ['Comedy|Crime', 'Drama', 'Comedy|Drama', 'Comedy|Drama'],
   },
   {
-    _id: '041ba16d-6b88-4a8d-bb66-8a83a56ebb9d',
+    id: '041ba16d-6b88-4a8d-bb66-8a83a56ebb9d',
     title: 'Death Takes a Holiday',
     year: 1964,
     cover: 'http://dummyimage.com/109x175.png/ff4444/ffffff',
@@ -66,7 +66,7 @@ const moviesMock = [
     tag: ['Comedy|Drama', 'Horror', 'Children|Comedy'],
   },
   {
-    _id: '1b67a64a-92e3-4a38-8b2a-23d5f1f22573',
+    id: '1b67a64a-92e3-4a38-8b2a-23d5f1f22573',
     title: 'I Origins',
     year: 1969,
     cover: 'http://dummyimage.com/150x121.jpg/cc0000/ffffff',
@@ -78,7 +78,7 @@ const moviesMock = [
     tag: ['Drama|Romance|Thriller', 'Drama'],
   },
   {
-    _id: '0aad7652-e3ad-42df-bb0c-1898f4aa29d4',
+    id: '0aad7652-e3ad-42df-bb0c-1898f4aa29d4',
     title: 'Ringu (Ring)',
     year: 2040,
     cover: 'http://dummyimage.com/170x147.bmp/cc0000/ffffff',
@@ -90,7 +90,7 @@ const moviesMock = [
     tag: ['Drama|Thriller', 'Action|Crime|Drama'],
   },
   {
-    _id: 'fcd5aa3f-8aa7-4d6a-b933-91ed2bfc1d0d',
+    id: 'fcd5aa3f-8aa7-4d6a-b933-91ed2bfc1d0d',
     title: 'Heli',
     year: 1981,
     cover: 'http://dummyimage.com/219x193.png/cc0000/ffffff',
@@ -108,7 +108,7 @@ const moviesMock = [
     ],
   },
   {
-    _id: 'ed2ced9c-bd19-406c-a720-cf60cf3340a3',
+    id: 'ed2ced9c-bd19-406c-a720-cf60cf3340a3',
     title: 'Teacher, A',
     year: 1904,
     cover: 'http://dummyimage.com/135x209.bmp/5fa2dd/ffffff',
@@ -120,7 +120,7 @@ const moviesMock = [
     tag: ['Drama|Romance', 'Crime|Drama|Thriller', 'Drama'],
   },
   {
-    _id: 'e7f2ad8e-0873-4ba1-8ed0-1012216ec418',
+    id: 'e7f2ad8e-0873-4ba1-8ed0-1012216ec418',
     title: 'Phantom Lover, The (Ye ban ge sheng)',
     year: 1981,
     cover: 'http://dummyimage.com/193x180.png/dddddd/000000',
@@ -134,7 +134,7 @@ const moviesMock = [
 ];
 
 function filteredMoviesMock(tag) {
-  return moviesMock.filter((movie) => movie.tags.includes(tag));
+  return moviesMock.filter((movie) => movie.tag.includes(tag));
 }
 
 class MoviesServiceMock {
