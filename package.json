@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=app:* nodemon index",
-    "start": "NODE_ENV=production node index"
+    "start": "NODE_ENV=production node index",
+    "test": "mocha --exit"
   },
   "keywords": [
     "api",
@@ -28,8 +29,12 @@
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
+    "mocha": "^7.1.1",
     "nodemon": "^2.0.2",
-    "prettierr": "^1.15.3-dev"
+    "prettierr": "^1.15.3-dev",
+    "proxyquire": "^2.1.3",
+    "sinon": "^9.0.1",
+    "supertest": "^4.0.2"
   },
   "husky": {
     "hooks": {
