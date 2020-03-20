@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "DEBUG=app:* nodemon index",
     "start": "NODE_ENV=production node index",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "cover": "nyc npm run test",
+    "report": "nyc report --reporter=html"
   },
   "keywords": [
     "api",
@@ -31,6 +33,7 @@
     "lint-staged": "^10.0.8",
     "mocha": "^7.1.1",
     "nodemon": "^2.0.2",
+    "nyc": "^15.0.0",
     "prettierr": "^1.15.3-dev",
     "proxyquire": "^2.1.3",
     "sinon": "^9.0.1",
@@ -42,6 +45,18 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "routes",
+      "services",
+      "lib",
+      "utils"
+    ]
   }
 }
