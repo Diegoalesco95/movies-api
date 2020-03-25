@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { config } = require('./config/index');
 const moviesApi = require('./routes/movies.js');
+const userMoviesApi = require('./routes/userMovies');
 const {
   logErrors,
   wrapErrors,
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(helmet());
 // routes
 moviesApi(app);
+userMoviesApi(app);
 
 // Catch 404
 app.use(notFoundhandler);
