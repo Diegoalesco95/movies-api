@@ -97,28 +97,6 @@ function moviesApi(app) {
     }
   );
 
-  router.patch(
-    '/:movieId',
-    validationHandler(joi.object({ movieId: movieIdSchema }), 'params'),
-    validationHandler(updateMovieSchema),
-    async function(req, res, next) {
-      const { body: movie } = req;
-      const { movieId } = req.params;
-      try {
-        const patchMovieId = await moviesService.patchMovie({
-          movieId,
-          movie,
-        });
-        res.status(200).json({
-          data: patchMovieId,
-          message: 'movie partial updated',
-        });
-      } catch (err) {
-        next(err);
-      }
-    }
-  );
-
   router.delete(
     '/:movieId',
     validationHandler(joi.object({ movieId: movieIdSchema }), 'params'),

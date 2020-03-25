@@ -30,15 +30,6 @@ class MoviesService {
     return updatedMovieId;
   }
 
-  async patchMovie({ movieId, movie } = {}) {
-    const patchedMovieId = await this.mongoDB.patch(
-      this.collection,
-      movieId,
-      movie
-    );
-    return patchedMovieId;
-  }
-
   async deleteMovie({ movieId }) {
     const deletedMovieId = await this.mongoDB.delete(this.collection, movieId);
     return deletedMovieId;
