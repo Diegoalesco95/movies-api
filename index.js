@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const helmet = require('helmet');
 const { config } = require('./config/index');
+const authApi = require('./routes/auth');
 const moviesApi = require('./routes/movies.js');
 const userMoviesApi = require('./routes/userMovies');
 const {
@@ -19,6 +20,7 @@ app.use(express.json());
 // helmet
 app.use(helmet());
 // routes
+authApi(app);
 moviesApi(app);
 userMoviesApi(app);
 
