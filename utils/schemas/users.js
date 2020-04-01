@@ -12,7 +12,6 @@ const userSchema = {
     .email()
     .required(),
   password: joi.string().required(),
-  isAdmin: joi.boolean(),
 };
 
 const createUserSchema = joi.object({

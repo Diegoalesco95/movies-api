@@ -34,7 +34,6 @@ class UserService {
     if (queriedUser) {
       return queriedUser;
     }
-
     await this.createUser({ user });
     return await this.getUser({ email: user.email });
   }
