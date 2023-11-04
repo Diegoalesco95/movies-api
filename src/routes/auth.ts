@@ -10,7 +10,6 @@ import UsersService from '@services/users';
 import validationHandler from '@utils/middleware/validationHandler';
 import { createUserSchema, createProviderUserSchema } from '@utils/schemas/users';
 import User from '@models/user';
-import { log } from 'console';
 
 // Basic Strategy
 require('@utils/auth/strategies/basic');
@@ -25,7 +24,7 @@ function authApi(app: Express) {
   const usersService = new UsersService();
 
   router.post('/sign-in', async (req, res, next) => {
-    const { apiKeyToken }: { apiKeyToken: string } = req.body;
+    const apiKeyToken = req.headers['x-api-key'] as string;
 
     if (!apiKeyToken) {
       next(boom.unauthorized('Token is required'));
@@ -34,7 +33,7 @@ function authApi(app: Express) {
     passport.authenticate('basic', (error: Error, user: User) => {
       try {
         if (error || !user) {
-          throw boom.unauthorized('Please provide an email and password');
+          throw boom.unauthorized('Please provide a correct email and password');
         }
 
         req.login(user, { session: false }, async (error) => {

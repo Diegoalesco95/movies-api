@@ -34,7 +34,8 @@ function moviesApi(app: Express) {
         const movies = (await moviesService.getMovies(tag as string)) as Movie[];
         // throw new Error('Error getting movies'); // (Testing purposes)
         res.status(200).json({
-          movies,
+          data: { movies },
+          message: 'Movies listed successfully',
         });
       } catch (err) {
         next(err);

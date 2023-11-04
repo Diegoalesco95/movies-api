@@ -44,8 +44,6 @@ class MoviesService {
 
   async deleteMovie({ movieId }: any) {
     const deletedMovieId = await this.mongoDB.delete(this.collection, movieId);
-    console.log(deletedMovieId);
-
     return deletedMovieId as ObjectId | null;
   }
 }
