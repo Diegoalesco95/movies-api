@@ -21,7 +21,9 @@ passport.use(
         return cb(boom.unauthorized('Unauthorized'), false);
       }
 
-      if (!bcrypt.compare(password, user.password)) {
+      const isCorrectPassword = await bcrypt.compare(password, user.password);
+
+      if (!isCorrectPassword) {
         return cb(boom.unauthorized('Unauthorized'), false);
       }
 

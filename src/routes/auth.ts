@@ -25,6 +25,7 @@ function authApi(app: Express) {
 
   router.post('/sign-in', async (req, res, next) => {
     const apiKeyToken = req.headers['x-api-key'] as string;
+    const rememberLogin = req.body?.rememberMe ? '15d' : '60m';
 
     if (!apiKeyToken) {
       next(boom.unauthorized('Token is required'));
@@ -58,12 +59,13 @@ function authApi(app: Express) {
             };
 
             const token = jwt.sign(jwtPayload, AUTH_JWT_SECRET, {
-              expiresIn: '60m',
+              expiresIn: rememberLogin,
             });
 
             return res.status(200).json({
               data: { token, user: { id, name, email } },
               message: 'Successful login',
+              statusCode: 200,
             });
           } catch (error) {
             next(error);
