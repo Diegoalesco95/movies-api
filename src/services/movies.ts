@@ -13,8 +13,8 @@ class MoviesService {
     this.mongoDB = new MongoLib();
   }
 
-  async getMovies(tag: string) {
-    const query = tag ? { tag: { $in: [tag] } } : {};
+  async getMovies(genre_id?: number) {
+    const query = genre_id ? { genre_ids: { $in: [genre_id] } } : {};
     const movies = await this.mongoDB.getAll(this.collection, query);
 
     if (movies) {
@@ -25,7 +25,7 @@ class MoviesService {
   }
 
   async getMovie(movieId: string) {
-    const movie = await this.mongoDB.get(this.collection, movieId);
+    const movie = await this.mongoDB.get(this.collection, { _id: new ObjectId(movieId) });
     if (movie) {
       return new Movie(movie);
     }

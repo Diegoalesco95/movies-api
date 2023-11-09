@@ -1,42 +1,65 @@
 // @packages
 import { ObjectId } from 'mongodb';
 
-type TMovie = {
+export enum OriginalLanguage {
+  En = 'en',
+  Hi = 'hi',
+}
+export interface IMovie {
   _id: ObjectId;
-  contentRating: string;
-  cover: string;
-  description: string;
-  duration: number;
-  source: string;
-  tag: Array<string>;
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: OriginalLanguage;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: Date;
   title: string;
-  year: number;
-};
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
 export default class Movie {
   public _id;
-  public contentRating;
-  public cover;
-  public description;
-  public duration;
-  public source;
-  public tag;
+  public adult;
+  public backdrop_path;
+  public genre_ids;
+  public id;
+  public original_language;
+  public original_title;
+  public overview;
+  public popularity;
+  public poster_path;
+  public release_date;
   public title;
-  public year;
-  constructor(movie?: TMovie) {
+  public video;
+  public vote_average;
+  public vote_count;
+  constructor(movie?: IMovie) {
     if (movie) {
       this._id = movie._id;
-      this.contentRating = movie.contentRating;
-      this.cover = movie.cover;
-      this.description = movie.description;
-      this.duration = movie.duration;
-      this.source = movie.source;
-      this.tag = movie.tag;
+      this.adult = movie.adult;
+      this.backdrop_path = movie.backdrop_path;
+      this.genre_ids = movie.genre_ids;
+      this.id = movie.id;
+      this.original_language = movie.original_language;
+      this.original_title = movie.original_title;
+      this.overview = movie.overview;
+      this.popularity = movie.popularity;
+      this.poster_path = movie.poster_path;
+      this.release_date = movie.release_date;
       this.title = movie.title;
-      this.year = movie.year;
+      this.video = movie.video;
+      this.vote_average = movie.vote_average;
+      this.vote_count = movie.vote_count;
     }
   }
 }
 
-export const formatMovies = (movies: TMovie[]) => {
+export const formatMovies = (movies: IMovie[]) => {
   return movies.map((movie) => new Movie(movie));
 };

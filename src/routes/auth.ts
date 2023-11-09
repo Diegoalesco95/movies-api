@@ -88,11 +88,13 @@ function authApi(app: Express) {
 
       const createdUserId = await usersService.createUser(newUser);
 
+      if (!createdUserId) {
+        throw boom.badImplementation('Error creating user');
+      }
+
       res.status(201).json({
-        data: {
-          userId: createdUserId,
-        },
         message: 'Successfully created user',
+        statusCode: 201,
       });
     } catch (error) {
       next(error);

@@ -4,6 +4,7 @@ import { MongoClient, ObjectId, Db, Document, Filter, OptionalId } from 'mongodb
 import config from '@config/index';
 import Movie from '@models/movies';
 import User from '@models/user';
+import Genre from '@models/genres';
 
 const USER = encodeURIComponent(config.dbUser as 'string | number | boolean');
 const PASSWORD = encodeURIComponent(config.dbPassword as 'string | number | boolean');
@@ -42,9 +43,10 @@ class MongoLib {
     });
   }
 
-  get(collection: string, id: string) {
+  get(collection: string, query: string | Filter<Document>) {
+    const filter = typeof query === 'string' ? { _id: new ObjectId(query) } : query;
     return this.connect().then((db: Db) => {
-      return db.collection(collection).findOne({ _id: new ObjectId(id) });
+      return db.collection(collection).findOne(filter);
     });
   }
 
@@ -56,7 +58,7 @@ class MongoLib {
       .then(({ insertedId }: { insertedId: ObjectId }) => insertedId);
   }
 
-  update(collection: string, id: string, data: Movie) {
+  update(collection: string, id: string, data: Movie | Genre) {
     return this.connect()
       .then((db: Db) => {
         return db.collection(collection).updateOne({ _id: new ObjectId(id) }, { $set: data }, { upsert: false });

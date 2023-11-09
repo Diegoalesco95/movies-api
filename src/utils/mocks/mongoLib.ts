@@ -6,7 +6,7 @@ const getAllStub = sinon.stub();
 getAllStub.withArgs('movies').resolves(moviesMock);
 
 const tagQuery = { tags: { $in: ['Drama'] } };
-getAllStub.withArgs('movies', tagQuery).resolves(filteredMoviesMock('Drama'));
+getAllStub.withArgs('movies', tagQuery).resolves(filteredMoviesMock(28));
 
 const createStub = sinon.stub().resolves(moviesMock[0].id);
 

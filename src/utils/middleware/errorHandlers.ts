@@ -14,7 +14,7 @@ function withErrorStack(error: Payload, stack: string | undefined) {
 function logErrors(err: Error, _req: Request, _res: Response, next: NextFunction) {
   if (config.dev) {
     console.log(`[❌ ${err.name}]:`, err.message);
-    console.log('[👀]:', err?.stack);
+    console.log('[🔎]:', err?.stack);
   }
   next(err);
 }

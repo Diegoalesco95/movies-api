@@ -12,6 +12,8 @@ import cacheResponse from '@utils/cacheResponse';
 import { FIVE_MINUTES_IN_SECONDS, SIXTY_MINUTES_IN_SECONDS } from '@utils/time';
 import MoviesService from '@services/movies';
 import Movie from '@models/movies';
+import GenresService from '@services/genres';
+import { ObjectId } from 'mongodb';
 
 // JWT strategy
 require('@utils/auth/strategies/jwt');
@@ -19,6 +21,7 @@ require('@utils/auth/strategies/jwt');
 function moviesApi(app: Express) {
   const router = express.Router();
   const moviesService = new MoviesService();
+  const genreService = new GenresService();
 
   app.use('/api/movies', router);
 
@@ -28,10 +31,31 @@ function moviesApi(app: Express) {
     scopesValidationHandler(['read:movies']),
     async (req, res, next) => {
       cacheResponse(res, FIVE_MINUTES_IN_SECONDS);
-      const { tag } = req.query;
+      const genre = req.query?.genre as string;
 
       try {
-        const movies = (await moviesService.getMovies(tag as string)) as Movie[];
+        let genreFound = null;
+
+        console.log('[genre]', genre);
+
+        if (genre) {
+          genreFound = await genreService.getGenreById(
+            ObjectId.isValid(genre) ? { _id: new ObjectId() } : { id: parseInt(genre) }
+          );
+
+          console.log('[genreFound]', genreFound);
+
+          if (!genreFound) {
+            genreFound = await genreService.getGenreByQuery({ name: genre });
+            console.log('[genreFound]', genreFound);
+          }
+
+          if (!genreFound) {
+            throw boom.notFound('The genre you are looking for does not exist');
+          }
+        }
+
+        const movies = (await moviesService.getMovies(genreFound?.id)) as Movie[];
         // throw new Error('Error getting movies'); // (Testing purposes)
         res.status(200).json({
           data: { movies },

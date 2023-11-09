@@ -13,7 +13,8 @@
     "cover": "nyc npm run test",
     "report": "nyc report --reporter=html",
     "lint": "ts-standard",
-    "seed:movies": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/scripts/mongo/seedMovies.js"
+    "seed:movies": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/scripts/mongo/seedMovies.js",
+    "seed:genres": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/scripts/mongo/seedGenres.js"
   },
   "keywords": [
     "api",

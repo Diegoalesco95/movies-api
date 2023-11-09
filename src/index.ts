@@ -11,6 +11,7 @@ import notFoundhandler from '@utils/middleware/notFoundHandler';
 // @routes
 import authApi from '@routes/auth';
 import moviesApi from '@routes/movies';
+import genresApi from '@routes/genres';
 import userMoviesApi from '@routes/userMovies';
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(helmet());
 // Routes
 authApi(app);
+genresApi(app);
 moviesApi(app);
 userMoviesApi(app);
 // Catch 404
