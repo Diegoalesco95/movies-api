@@ -9,7 +9,6 @@ import UserMoviesService from '@services/userMovies';
 import validationHandler from '@utils/middleware/validationHandler';
 import scopesValidationHandler from '@utils/middleware/scopesValidationHandler';
 import { movieIdSchema } from '@utils/schemas/movies';
-import { userIdSchema } from '@utils/schemas/users';
 import { createUserMovieSchema } from '@utils/schemas/userMovies';
 
 // JWT strategy
@@ -26,21 +25,21 @@ function userMoviesApi(app: Express) {
     '/',
     passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['read:user-movies']),
-    validationHandler(joi.object({ userId: userIdSchema }), 'query'),
     async (req, res, next) => {
-      const userId = req.body.userId as string;
+      console.log('Req-User', req?.user);
+
+      const _id = (req?.user as any)?._id.toString();
 
       try {
-        if (!userId) {
+        if (!_id) {
           throw boom.badData('The data sent is wrong');
         }
 
-        const userMovies = await userMoviesService.getUserMovies(userId);
+        const userMovies = await userMoviesService.getUserMovies(_id);
 
         if (userMovies.length > 0) {
           res.status(200).json({
             data: {
-              userId,
               userMovies,
             },
             message: 'User Movies Found Successfully',
@@ -48,7 +47,6 @@ function userMoviesApi(app: Express) {
         } else {
           res.status(200).json({
             data: {
-              userId,
               userMovies,
             },
             message: 'The user does not have movies',
@@ -84,7 +82,7 @@ function userMoviesApi(app: Express) {
 
         const createdUserMovieId = await userMoviesService.createUserMovie(userId, movieId);
         res.status(201).json({
-          data: { createdUserMovieId },
+          data: { userMovie: { _id: createdUserMovieId, userId, movieId } },
           message: 'The movie was successfully added to the user',
         });
       } catch (error) {

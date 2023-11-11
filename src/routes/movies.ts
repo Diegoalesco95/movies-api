@@ -36,18 +36,13 @@ function moviesApi(app: Express) {
       try {
         let genreFound = null;
 
-        console.log('[genre]', genre);
-
         if (genre) {
           genreFound = await genreService.getGenreById(
             ObjectId.isValid(genre) ? { _id: new ObjectId() } : { id: parseInt(genre) }
           );
 
-          console.log('[genreFound]', genreFound);
-
           if (!genreFound) {
             genreFound = await genreService.getGenreByQuery({ name: genre });
-            console.log('[genreFound]', genreFound);
           }
 
           if (!genreFound) {
