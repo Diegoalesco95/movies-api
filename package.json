@@ -1,7 +1,7 @@
 {
   "name": "movies-api",
   "version": "1.0.0",
-  "description": "API de peliculas utilizado en el proyecto Platzi-video",
+  "description": "API REST of movies with Node.js, Express and MongoDB - Practice purpose",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
