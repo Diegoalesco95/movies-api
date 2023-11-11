@@ -26,8 +26,6 @@ function userMoviesApi(app: Express) {
     passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['read:user-movies']),
     async (req, res, next) => {
-      console.log('Req-User', req?.user);
-
       const _id = (req?.user as any)?._id.toString();
 
       try {
