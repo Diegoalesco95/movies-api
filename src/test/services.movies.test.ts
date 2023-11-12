@@ -1,8 +1,8 @@
 import assert from 'assert';
 import proxyquire from 'proxyquire';
 
-import { MongoLibMock, getAllStub } from '@utils/mocks/mongoLib';
-import { moviesMock } from '@utils/mocks/movies';
+import { MongoLibMock, getAllStub } from 'src/utils/mocks/mongoLib';
+import { moviesMock } from 'src/utils/mocks/movies';
 
 describe('services - movies', function () {
   const MoviesServices = proxyquire('../services/movies', {

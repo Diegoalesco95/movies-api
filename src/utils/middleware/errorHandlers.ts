@@ -2,7 +2,7 @@
 import { Response, Request, NextFunction } from 'express';
 import boom, { Boom, Payload, badImplementation } from '@hapi/boom';
 // @scripts
-import config from '@config/index';
+import config from 'src/config';
 
 function withErrorStack(error: Payload, stack: string | undefined) {
   if (config.dev) {

@@ -4,12 +4,12 @@ import passport from 'passport';
 import joi from '@hapi/joi';
 import boom from '@hapi/boom';
 // @scripts
-import MoviesService from '@services/movies';
-import UserMoviesService from '@services/userMovies';
-import validationHandler from '@utils/middleware/validationHandler';
-import scopesValidationHandler from '@utils/middleware/scopesValidationHandler';
-import { movieIdSchema } from '@utils/schemas/movies';
-import { createUserMovieSchema } from '@utils/schemas/userMovies';
+import MoviesService from 'src/services/movies';
+import UserMoviesService from 'src/services/userMovies';
+import validationHandler from 'src/utils/middleware/validationHandler';
+import scopesValidationHandler from 'src/utils/middleware/scopesValidationHandler';
+import { movieIdSchema } from 'src/utils/schemas/movies';
+import { createUserMovieSchema } from 'src/utils/schemas/userMovies';
 
 // JWT strategy
 require('../utils/auth/strategies/jwt');

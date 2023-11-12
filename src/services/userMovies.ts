@@ -2,7 +2,7 @@
 import { ObjectId } from 'mongodb';
 // @scripts
 import MongoLib from '@lib/mongo';
-import { formatUserMovies } from '@models/userMovies';
+import { formatUserMovies } from 'src/models/userMovies';
 
 class UserMoviesService {
   collection: string;

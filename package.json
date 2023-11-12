@@ -4,17 +4,14 @@
   "description": "API REST of movies with Node.js, Express and MongoDB - Practice purpose",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf dist",
-    "dev": "DEBUG=app:* nodemon -r tsconfig-paths/register ./src/index.ts",
     "build": "npx tsc",
-    "prestart": "npm run build",
-    "start": "NODE_ENV=production node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/index.js",
-    "test": "mocha -r ts-node/register -r tsconfig-paths/register './dist/**/*.js' --exit ",
-    "cover": "nyc npm run test",
-    "report": "nyc report --reporter=html",
+    "clean": "rm -rf dist",
+    "dev": "DEBUG=app:* nodemon ./src/index.ts",
     "lint": "ts-standard",
-    "seed:movies": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/scripts/mongo/seedMovies.js",
-    "seed:genres": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/scripts/mongo/seedGenres.js"
+    "seed:genres": "node -r dist/scripts/mongo/seedGenres.js",
+    "seed:movies": "node -r dist/scripts/mongo/seedMovies.js",
+    "start": "NODE_ENV=production node dist/index.js",
+    "vercel-build": "echo hello"
   },
   "keywords": [
     "api",

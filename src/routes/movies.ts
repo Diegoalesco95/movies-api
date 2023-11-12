@@ -5,18 +5,18 @@ import joi from '@hapi/joi';
 import boom from '@hapi/boom';
 
 // @scripts
-import { movieIdSchema, createMovieSchema, updateMovieSchema } from '@utils/schemas/movies';
-import validationHandler from '@utils/middleware/validationHandler';
-import scopesValidationHandler from '@utils/middleware/scopesValidationHandler';
-import cacheResponse from '@utils/cacheResponse';
-import { FIVE_MINUTES_IN_SECONDS, SIXTY_MINUTES_IN_SECONDS } from '@utils/time';
-import MoviesService from '@services/movies';
-import Movie from '@models/movies';
-import GenresService from '@services/genres';
+import { movieIdSchema, createMovieSchema, updateMovieSchema } from 'src/utils/schemas/movies';
+import validationHandler from 'src/utils/middleware/validationHandler';
+import scopesValidationHandler from 'src/utils/middleware/scopesValidationHandler';
+import cacheResponse from 'src/utils/cacheResponse';
+import { FIVE_MINUTES_IN_SECONDS, SIXTY_MINUTES_IN_SECONDS } from 'src/utils/time';
+import MoviesService from 'src/services/movies';
+import Movie from 'src/models/movies';
+import GenresService from 'src/services/genres';
 import { ObjectId } from 'mongodb';
 
 // JWT strategy
-require('@utils/auth/strategies/jwt');
+require('src/utils/auth/strategies/jwt');
 
 function moviesApi(app: Express) {
   const router = express.Router();

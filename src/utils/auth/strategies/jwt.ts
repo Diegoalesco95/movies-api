@@ -4,8 +4,8 @@ import { Strategy, ExtractJwt } from 'passport-jwt';
 import boom from '@hapi/boom';
 
 // @scripts
-import config from '@config/index';
-import UsersService from '@services/users';
+import config from 'src/config';
+import UsersService from 'src/services/users';
 
 passport.use(
   new Strategy(

@@ -3,7 +3,7 @@
 import { green, red } from 'chalk';
 const debug = require('debug')('app:scripts:movies');
 import MongoLib from '@lib/mongo';
-import { moviesMock } from '@utils/mocks/movies';
+import { moviesMock } from 'src/utils/mocks/movies';
 
 async function seedMovies() {
   try {
