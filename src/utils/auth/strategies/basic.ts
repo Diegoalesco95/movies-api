@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import boom from '@hapi/boom';
 import passport from 'passport';
 // @scripts
-import UsersService from '@services/users';
+import UsersService from '@/services/users';
 
 passport.use(
   new BasicStrategy(async (email, password, cb) => {

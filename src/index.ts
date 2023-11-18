@@ -4,15 +4,15 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 // @scripts
-import config from '@config/index';
-import { logErrors, wrapErrors, errorHandler } from '@utils/middleware/errorHandlers';
-import notFoundhandler from '@utils/middleware/notFoundHandler';
+import config from '@/config';
+import { logErrors, wrapErrors, errorHandler } from '@/utils/middleware/errorHandlers';
+import notFoundhandler from '@/utils/middleware/notFoundHandler';
 
-// @routes
-import authApi from '@routes/auth';
-import moviesApi from '@routes/movies';
-import genresApi from '@routes/genres';
-import userMoviesApi from '@routes/userMovies';
+// @/routes
+import authApi from '@/routes/auth';
+import moviesApi from '@/routes/movies';
+import genresApi from '@/routes/genres';
+import userMoviesApi from '@/routes/userMovies';
 
 const app = express();
 
@@ -37,3 +37,5 @@ app.use(errorHandler);
 app.listen(config.port, () => {
   console.log(`[⚙️ Listening at: http://localhost:${config.port}]`);
 });
+
+export default app;

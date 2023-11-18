@@ -1,5 +1,5 @@
 import assert from 'assert';
-import buildMessage from '@utils/buildMessage';
+import buildMessage from '@/utils/buildMessage';
 
 describe.only('utils - buildMessage', function () {
   describe('when receive an entity and a action', function () {

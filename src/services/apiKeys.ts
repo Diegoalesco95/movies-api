@@ -1,5 +1,5 @@
-import MongoLib from '@lib/mongo';
-import ApiKey from '@models/apiKeys';
+import MongoLib from '@/lib/mongo';
+import ApiKey from '@/models/apiKeys';
 
 class ApiKeysService {
   collection: string;

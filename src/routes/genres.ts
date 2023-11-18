@@ -6,16 +6,16 @@ import joi from '@hapi/joi';
 import passport from 'passport';
 
 // @scripts
-import { FIVE_MINUTES_IN_SECONDS, SIXTY_MINUTES_IN_SECONDS } from '@utils/time';
-import { genreIdSchema, createGenreSchema, updateGenreSchema, genreNameSchema } from '@utils/schemas/genres';
-import cacheResponse from '@utils/cacheResponse';
-import Genre from '@models/genres';
-import GenresService from '@services/genres';
-import scopesValidationHandler from '@utils/middleware/scopesValidationHandler';
-import validationHandler from '@utils/middleware/validationHandler';
+import { FIVE_MINUTES_IN_SECONDS, SIXTY_MINUTES_IN_SECONDS } from '@/utils/time';
+import { genreIdSchema, createGenreSchema, updateGenreSchema, genreNameSchema } from '@/utils/schemas/genres';
+import cacheResponse from '@/utils/cacheResponse';
+import Genre from '@/models/genres';
+import GenresService from '@/services/genres';
+import scopesValidationHandler from '@/utils/middleware/scopesValidationHandler';
+import validationHandler from '@/utils/middleware/validationHandler';
 
 // JWT strategy
-require('@utils/auth/strategies/jwt');
+require('@/utils/auth/strategies/jwt');
 
 function genresApi(app: Express) {
   const router = express.Router();

@@ -2,8 +2,8 @@
 
 import { green, red } from 'chalk';
 const debug = require('debug')('app:scripts:genres');
-import MongoLib from '@lib/mongo';
-import { genresMock } from '@utils/mocks/genres';
+import MongoLib from '@/lib/mongo';
+import { genresMock } from '@/utils/mocks/genres';
 
 async function seedGenres() {
   try {
