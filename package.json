@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "add-build": "git add dist",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "clean": "rimraf dist",
-    "dev": "DEBUG=app:* nodemon ./src/index.ts",
+    "dev": "DEBUG=app:* nodemon src/index.ts",
     "lint": "ts-standard",
     "seed:genres": "node -r dist/scripts/mongo/seedGenres.js",
     "seed:movies": "node -r dist/scripts/mongo/seedMovies.js",
-    "start": "nodemon src/index.ts",
+    "start": "nodemon dist/index.js",
     "ts.check": "tsc --project tsconfig.json"
   },
   "keywords": [
@@ -52,21 +52,16 @@
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "nyc": "^15.1.0",
-    "pre-commit": "^1.2.2",
     "proxyquire": "^2.1.3",
     "rimraf": "^5.0.5",
     "sinon": "^15.1.2",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "ts-standard": "^12.0.2",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "nyc": {
     "all": true,
     "include": [

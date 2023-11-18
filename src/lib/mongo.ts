@@ -1,10 +1,10 @@
 // @packages
 import { MongoClient, ObjectId, Db, Document, Filter, OptionalId } from 'mongodb';
 // @scripts
-import config from 'src/config';
-import Movie from 'src/models/movies';
-import User from 'src/models/user';
-import Genre from 'src/models/genres';
+import config from '@/config';
+import Movie from '@/models/movies';
+import User from '@/models/user';
+import Genre from '@/models/genres';
 
 const USER = encodeURIComponent(config.dbUser as 'string | number | boolean');
 const PASSWORD = encodeURIComponent(config.dbPassword as 'string | number | boolean');

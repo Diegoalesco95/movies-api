@@ -4,15 +4,15 @@ import express, { Express } from 'express';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
 // @scripts
-import config from 'src/config';
-import ApiKeysService from 'src/services/apiKeys';
-import UsersService from 'src/services/users';
-import validationHandler from 'src/utils/middleware/validationHandler';
-import { createUserSchema, createProviderUserSchema } from 'src/utils/schemas/users';
-import User from 'src/models/user';
+import config from '@/config';
+import ApiKeysService from '@/services/apiKeys';
+import UsersService from '@/services/users';
+import validationHandler from '@/utils/middleware/validationHandler';
+import { createUserSchema, createProviderUserSchema } from '@/utils/schemas/users';
+import User from '@/models/user';
 
 // Basic Strategy
-require('src/utils/auth/strategies/basic');
+require('@/utils/auth/strategies/basic');
 
 const AUTH_JWT_SECRET = config.authJwtSecret as string;
 

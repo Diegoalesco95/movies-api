@@ -4,15 +4,15 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 // @scripts
-import config from 'src/config';
-import { logErrors, wrapErrors, errorHandler } from 'src/utils/middleware/errorHandlers';
-import notFoundhandler from 'src/utils/middleware/notFoundHandler';
+import config from '@/config';
+import { logErrors, wrapErrors, errorHandler } from '@/utils/middleware/errorHandlers';
+import notFoundhandler from '@/utils/middleware/notFoundHandler';
 
-// src/routes
-import authApi from 'src/routes/auth';
-import moviesApi from 'src/routes/movies';
-import genresApi from 'src/routes/genres';
-import userMoviesApi from 'src/routes/userMovies';
+// @/routes
+import authApi from '@/routes/auth';
+import moviesApi from '@/routes/movies';
+import genresApi from '@/routes/genres';
+import userMoviesApi from '@/routes/userMovies';
 
 const app = express();
 

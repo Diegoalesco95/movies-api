@@ -1,7 +1,7 @@
 // @packages
 import { Response } from 'express';
 // @scripts
-import config from 'src/config';
+import config from '@/config';
 
 function cacheResponse(res: Response, seconds: number) {
   if (!config.dev) {
