@@ -2,7 +2,7 @@
 import bcrypt from 'bcrypt';
 import { ObjectId } from 'mongodb';
 // @scripts
-import Mongolib from '@lib/mongo';
+import Mongolib from 'src/lib/mongo';
 import User from 'src/models/user';
 
 class UserService {

@@ -1,7 +1,7 @@
 // @packages
 import { Document, Filter, ObjectId } from 'mongodb';
 // @scripts
-import MongoLib from '@lib/mongo';
+import MongoLib from 'src/lib/mongo';
 import Genre, { formatGenres } from 'src/models/genres';
 
 class GenresService {

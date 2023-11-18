@@ -1,7 +1,7 @@
 // @packages
 import { ObjectId } from 'mongodb';
 // @scripts
-import MongoLib from '@lib/mongo';
+import MongoLib from 'src/lib/mongo';
 import { formatUserMovies } from 'src/models/userMovies';
 
 class UserMoviesService {

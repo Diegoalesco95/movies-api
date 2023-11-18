@@ -1,4 +1,4 @@
-import MongoLib from '@lib/mongo';
+import MongoLib from 'src/lib/mongo';
 import ApiKey from 'src/models/apiKeys';
 
 class ApiKeysService {
