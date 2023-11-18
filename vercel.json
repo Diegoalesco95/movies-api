@@ -12,5 +12,16 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ]
+  ],
+  "env": {
+    "DB_USER": "@platzivideos-db-user",
+    "DB_PASSWORD": "@platzivideos-db-password",
+    "DB_HOST": "@platzivideos-db-host",
+    "DB_NAME": "@platzivideos-db-name",
+    "DEFAULT_ADMIN_PASSWORD": "@platzivideos-adm-pass",
+    "DEFAULT_USER_PASSWORD": "@platzivideos-user-pass",
+    "AUTH_JWT_SECRET": "@platzivideos-jwt-secret",
+    "PUBLIC_API_KEY_TOKEN": "@platzivideos-api-key-token",
+    "ADMIN_API_KEY_TOKEN": "@platzivideos-adm-key-token"
+  }
 }
